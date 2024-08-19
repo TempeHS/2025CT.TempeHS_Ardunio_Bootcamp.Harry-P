@@ -1,4 +1,4 @@
-/*  Author: 
+/*  Harry P: 
 
   Learning Intention:
   The students understand binary selection logic and apply it to a simple control structures.
