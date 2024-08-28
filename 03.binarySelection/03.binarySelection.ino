@@ -32,10 +32,58 @@
 
 */
 
+static unsigned int ledPin = 6;
+
+static unsigned int buttonPin = 5;
+static unsigned int lightSensor = 7;
+
+bool readPin;
+bool writeValue;
+
 void setup() {
-  
+  pinMode(ledPin,OUTPUT);
+  pinMode(buttonPin, INPUT);
+  pinMode(lightSensor, INPUT);
+  Serial.begin(9600);
+Serial.println("Debugged");
 }
 
-void loop() {
-  
+void loop() 
+{
+  Serial.println(analogRead(A3));
+  if (analogRead(A3) == 0)
+  { 
+    digitalWrite(ledPin, LOW);
+  } else if (analogRead(A3) >= 300)
+  {
+    digitalWrite(ledPin, HIGH);
+  } else
+  {
+    digitalWrite(ledPin, LOW);
+  }
+
 }
+
+
+/*
+IF ELSE STATEMENT
+  if (digitalRead(buttonPin) == LOW)
+  {
+    digitalWrite(ledPin, HIGH);
+    delay(50);
+  } else 
+  {
+    digitalWrite(ledPin, LOW);
+  } 
+*/
+
+/*
+  readPin = digitalRead(buttonPin);
+  digitalWrite(ledPin, !readPin);
+
+  Serial.print("Led Value:");
+  Serial.print(digitalRead(readPin));
+  Serial.print(",");
+  Serial.print("Button Value:");
+  Serial.println(digitalRead(!readPin));
+*/

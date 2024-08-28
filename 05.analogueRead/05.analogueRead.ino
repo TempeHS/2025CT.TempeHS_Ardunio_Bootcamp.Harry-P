@@ -23,10 +23,12 @@
 
 
 void setup() {
-  
+  Serial.begin(9600);
+  Serial.println("debugged");
 }
 
 void loop() {
-  
+  Serial.println(analogRead(A3));
+  delay(10);
 }
 
