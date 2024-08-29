@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Harry P
 
   Learning Intention:
   The students will learn what 'pulse width modulation' is and how to use it to write
@@ -23,10 +23,14 @@
 
 
 
-void setup() {
-  
+void setup() 
+{
+  Serial.begin(9600);
+  Serial.println("Debug");
+  pinMode(3, OUTPUT);
 }
 
-void loop() {
-  
+void loop() 
+{
+  analogWrite(3, analogRead(A3) / 4);
 }
