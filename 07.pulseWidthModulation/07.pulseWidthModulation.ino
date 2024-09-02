@@ -22,7 +22,7 @@
 */
 
 
-
+/*
 void setup() 
 {
   Serial.begin(9600);
@@ -33,4 +33,23 @@ void setup()
 void loop() 
 {
   analogWrite(3, analogRead(A3) / 4);
+}
+*/
+
+unsigned static int rLED = 9;
+unsigned static int bLED = 10;
+unsigned static int gLED = 11;
+
+void setup()
+{
+  pinMode(rLED, OUTPUT);
+  pinMode(bLED, OUTPUT);
+  pinMode(gLED, OUTPUT);
+}
+
+void loop()
+{
+  analogWrite(rLED,255);
+  analogWrite(bLED,255);
+  analogWrite(gLED,255);
 }
