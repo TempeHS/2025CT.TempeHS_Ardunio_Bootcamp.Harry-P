@@ -12,7 +12,21 @@
     3.  I can read a simple logic flowchart
     4.  I know how to find the documentation for loop logic control structures
 
-  Student Notes: 
+  Student Notes:
+  bool increase = true;
+      if (i == 256)
+    {
+      increase = false;
+    } else if (i == 0){
+      increase = true;
+    }
+
+    if (increase)
+    {
+      i += 1;
+    } else {
+      i -= 1;
+    } 
   Comparison Operators
     - != (not equal to)
     - < (less than)
@@ -35,11 +49,22 @@
     
 */
 
+static unsigned int LEDpin = 3;
+
+
 void setup() {
-  
+  pinMode(LEDpin,OUTPUT);
 }
 
 void loop() {
-      
+    
+  for (int i = -255; i < 255; i++)
+  {
+    unsigned val = i
+    analogWrite(LEDpin, i);
+    delay (25);
+
+  }
+
 }
 
