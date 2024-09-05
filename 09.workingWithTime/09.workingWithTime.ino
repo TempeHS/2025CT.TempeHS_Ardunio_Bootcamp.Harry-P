@@ -18,8 +18,23 @@
 */
 
 
+static unsigned int blueLED = 6;
+static unsigned int greenLED = 2;
+unsigned int blueLEDState = LOW;
+unsigned int greenLEDState = LOW;
+
+// Generally, you should use "unsigned long" for variables that hold time
+// The value will quickly becoe too large for an int to store
+unsigned long blueLEDPreviousMillis = 0;
+unsigned long greenLEDPreviousMillis = 0;
+
+// use a long so you can mathematically compare with the variable previousMillis without conversion
+const unsigned long blueLEDinterval = 2000;
+const unsigned long greenLEDinterval = 1000;
+
 void setup() {
-  
+  Seial.begin(9600)
+
 }
 
 
