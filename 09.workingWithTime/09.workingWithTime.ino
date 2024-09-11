@@ -30,15 +30,42 @@ unsigned long greenLEDPreviousMillis = 0;
 
 // use a long so you can mathematically compare with the variable previousMillis without conversion
 const unsigned long blueLEDinterval = 2000;
-const unsigned long greenLEDinterval = 1000;
+const unsigned long greenLEDinterval = 9000;
 
 void setup() {
-  Seial.begin(9600)
+  Serial.begin(9600);
+  Serial.println("Debugger");
+  pinMode(blueLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+  digitalWrite(blueLED, blueLEDState);
+  digitalWrite(greenLED, greenLEDState);
 
 }
 
 
 void loop() {
-  
+  //  check to see if it's time to blink the LED; that is, if the difference
+  //  between the current time and last time you blinked the LED is bigger than
+  //  the interval at which you want to blink the LED
+
+  unsigned long currentMillis = millis();
+
+  while (currentMillis - blueLEDPreviousMillis >= blueLEDinterval){
+    blueLEDState = !blueLEDState;
+    digitalWrite(blueLED, blueLEDState);
+    blueLEDPreviousMillis = currentMillis;
+  }
+
+  while (currentMillis - greenLEDPreviousMillis >= greenLEDinterval){
+    greenLEDState = !greenLEDState;
+    digitalWrite(greenLED, greenLEDState);
+    greenLEDPreviousMillis = currentMillis;
+  }
+
+  Serial.print("blueLed:");
+  Serial.print(blueLEDState);
+  Serial.print(",");
+  Serial.print("greenLed:");
+  Serial.println(greenLEDState); 
 }
 
