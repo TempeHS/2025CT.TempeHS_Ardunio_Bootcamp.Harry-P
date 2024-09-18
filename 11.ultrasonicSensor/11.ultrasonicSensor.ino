@@ -25,11 +25,29 @@
 
 #include "Ultrasonic.h"
 
+#include <Servo.h>
+
+Servo myservo;
+Ultrasonic harry_sensor(5);
+unsigned static int servoPin = 7;
+unsigned static int potpin = A2;
+
+int timer = 0
+
 void setup()
 {
-  
+  myservo.attach(servoPin);
+  Serial.begin(9600);
+
 }
 void loop()
 {
-  
+  // Serial.println(harry_sensor.distanceRead());
+  if (harry_sensor.distanceRead() <= 10)
+  {
+    myservo.write(180);
+    timer = 3000
+  } else{
+    myservo.write(0);
+  }
 }
